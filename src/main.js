@@ -24,7 +24,7 @@ async function initVue() {
 
   //await initScript().then(async function(r) {
 
-    rr = r;
+    //rr = r;
 
     new Vue({
       router,

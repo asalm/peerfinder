@@ -4,7 +4,6 @@
   <div class="hero-body">
     <h1 class="title">Peerfinder</h1>
     <h2 class="subtitle">Erzeuge Peers für Gruppe</h2>
-    {{selectedPeers}}
   </div>
 </div>
   <div class="hello">
@@ -58,5 +57,9 @@ li {
 }
 a {
   color: #42b983;
+}
+
+CalcView {
+  margin-bottom:4em;
 }
 </style>

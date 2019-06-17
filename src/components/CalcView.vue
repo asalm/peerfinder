@@ -5,7 +5,7 @@
             <b-field label="Matching Methode">
                 <b-select placeholder="Methode?"
                         v-model="matchOption">
-                    <option value="random" aria-role="listitem" selected>Zufällig</option>
+                    <option value="random" aria-role="listitem" selected default>Zufällig</option>
                     <option value="bm">Best Match</option>
                     <option value="wm">Worst Match</option>
                 </b-select>
@@ -14,7 +14,7 @@
         <div class="level-item">
            <b-field label="Filter">
             <b-select placeholder="Filter wählen" v-model="filterOption">
-                <option value="kein Filter" selected>kein Filter</option>
+                <option value="kein Filter" selected default>kein Filter</option>
                 <option value="t1">Test 1</option>
                 <option value="t2">Test 2</option>
                 <option value="t3">Test 3</option>
@@ -23,7 +23,9 @@
 
         </div>    
         <div class="level-item">
-            <b-button v-on:click="calculate">Generieren</b-button>
+            <b-field label="Generieren">
+            <b-button v-on:click="calculate">Abschicken</b-button>
+            </b-field>
         </div>   
     </div>     
 </div>
@@ -41,12 +43,14 @@ export default {
             filterOption:''
         }
     },
+    created(){
+        //let peers = this.peerlist.length > 0 ? this.peerlist: null;
+    },
     methods:{
         calculate: function(){
             const options = {method: this.matchOption, filter: this.filterOption};
             let peers = this.peerlist.length > 0 ? this.peerlist: null;
             let matchlist = [];
-
             //check that the Options Table is filled!
             if(options.method != null && options.filter != null && this.peerlist.length > 0){
                 //Peers need to be dividable by two, otherwise there will be someone w/o partner

@@ -1,7 +1,6 @@
 <template>
 <div class="container">
     <div class="column is-12">
-        {{activeArray}}
         <div class="columns is-multiline">
             <div class="column is-3" v-for='peer in peers'>
                 <Peer :peerdata='peer' :cb='updateList' interactive/>
@@ -35,56 +34,56 @@ export default {
             peers: [
             {
                 id: 0,
-                name : 'Hannes',
+                name : 'A',
                 attending : true
             },{
                 id: 1,
-                name : 'Jochen',
+                name : 'B',
                 attending : true
             },{
                 id: 2,
-                name : 'Timon',
+                name : 'C',
                 attending : true
             },{
                 id: 3,
-                name : 'Patrick',
+                name : 'D',
                 attending : true
             },{
                 id: 4,
-                name : 'Markus',
+                name : 'E',
                 attending : true
             },{
                 id: 5,
-                name : 'Tjark',
+                name : 'F',
                 attending : true
             },{
                 id: 6,
-                name : 'Arion',
+                name : 'G',
                 attending : true
             },{
                 id: 7,
-                name : 'Carsten',
+                name : 'H',
                 attending : true
             },{
                 id: 8,
-                name : 'Patrick',
+                name : 'I',
                 attending : true
             },{
                 id: 9,
-                name : 'Markus',
+                name : 'J',
                 attending : true
             },{
                 id: 10,
-                name : 'Tjark',
+                name : 'K',
                 attending : true
             },{
                 id: 11,
-                name : 'Arion',
+                name : 'L',
                 attending : true
             },{
                 id: 12,
-                name : 'Carsten',
-                attending : false
+                name : 'M',
+                attending : true
             }],
             attendingList: new Map(),
             activeArray: []
