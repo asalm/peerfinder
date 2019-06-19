@@ -3,7 +3,7 @@
 <div class="hero is-small is-success">
   <div class="hero-body">
     <h1 class="title">Peerfinder</h1>
-    <h2 class="subtitle">Erzeuge Peers für Gruppe</h2>
+    <h2 class="subtitle">Erzeuge Peers für {{selectedGroup}}</h2>
   </div>
 </div>
   <div class="hello">
@@ -23,7 +23,8 @@ export default {
     CalcView,
   },
   props: {
-    //msg: String
+    selectedGroup: String,
+    groupId: Number,
   },
   data(){
     return{

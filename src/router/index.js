@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import MatchView from '@/components/MatchView'
 import ResultView from '@/components/ResultView'
-
+import GroupView from '@/components/GroupView'
 Vue.use(Router)
 
 export default new Router({
@@ -10,7 +10,13 @@ export default new Router({
     {
       path: '/',
       name: 'start',
-      component: MatchView
+      component: GroupView
+    },
+    {
+      path: '/match',
+      name: 'match',
+      component: MatchView,
+      props: true
     },
     {
         path: '/result',

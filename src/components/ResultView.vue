@@ -19,10 +19,13 @@
     <section class="section">
         <div class="level">
             <div class="level-item">
+                <router-link to="/"><b-button>zurück</b-button></router-link>
+            </div>
+            <div class="level-item">
                 <b-button v-on:click="printView()">Ansicht drucken</b-button>
             </div>
             <div class="level-item">
-                <router-link to="/"><b-button>zurück</b-button></router-link>
+                <b-button v-on:click="saveMatches()">Paare speichern</b-button>
             </div>
         </div>
     </section>
@@ -66,6 +69,10 @@ export default {
         },
         printView: function(){
             window.print();
+        },
+        saveMatches: function(){
+
+            window.alert("Paare wurden erfolgreich gespeichert.");
         }
     }
     
