@@ -1,26 +1,31 @@
 <template>
-<div class="container">
-<div class="hero is-small is-success">
-  <div class="hero-body">
-    <h1 class="title">Peerfinder</h1>
-    <h2 class="subtitle">Erzeuge Peers für {{selectedGroup}}</h2>
+<div>
+    <Navbar/>
+  <div class="hero is-small is-success">
+    <div class="hero-body">
+      <h1 class="title">Mix and Match</h1>
+      <h2 class="subtitle">Wähle Teilnehmer aus der Gruppe {{selectedGroup}} aus. Aus deiner Auswahl werden Peergruppen erzeugt.</h2>
+    </div>
+  </div>
+  <div class="container">
+    <div class="hello">
+      <PeerView :callback='updatePeers'/>
+    </div>
+    <CalcView :callback='updateConfig' :peerlist='selectedPeers'/>
   </div>
 </div>
-  <div class="hello">
-    <PeerView :callback='updatePeers'/>
-  </div>
-  <CalcView :callback='updateConfig' :peerlist='selectedPeers'/>
-  </div>
 </template>
 <script>
 import PeerView from '@/components/PeerView';
 import CalcView from '@/components/CalcView';
+import Navbar from '@/components/Navbar';
 
 export default {
   name: 'MatchView',
   components:{
     PeerView,
     CalcView,
+    Navbar,
   },
   props: {
     selectedGroup: String,

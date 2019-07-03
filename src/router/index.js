@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import MatchView from '@/components/MatchView'
 import ResultView from '@/components/ResultView'
 import GroupView from '@/components/GroupView'
+import HistoryView from '@/components/HistoryView'
+
 Vue.use(Router)
 
 export default new Router({
@@ -23,6 +25,12 @@ export default new Router({
         name: 'result',
         component: ResultView,
         props: true
+    },
+    {
+      path: '/history',
+      name: 'history',
+      component: HistoryView,
+      props: true
     }
   ]
 })

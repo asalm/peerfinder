@@ -3,15 +3,19 @@
     <Navbar/>
     <div class="hero is-small is-success">
         <div class="hero-body">
-            <h1 class="title">Gruppe auswählen</h1>
-            <h2 class="subtitle">Wähle die Gruppe aus, für die Peergruppen erzeugt werden sollen.</h2>
+            <h1 class="title">Historie</h1>
+            <h2 class="subtitle">Erstellte Paar für die Gruppe werden angezeigt.</h2>
         </div>
     </div>
     <div class="container">
         <section class="section">
         <div class="columns is-multiline">
-                <div class="column is-3" v-for='group in groups' v-bind:key="group.id">
-                    <Group :gdata='group'/>
+                <div class="column is-3" v-for='result in results' v-bind:key='result.key'>
+                    <div class="box">
+                        <b>{{result.name}}</b><br>
+                        {{result.count}} Teilnehmer<br>
+                        {{result.date}}                    
+                    </div>
                 </div>
         </div>
         </section>
@@ -19,13 +23,13 @@
 </div>
 </template>
 <script>
-import Group from '@/components/Group';
+//import Group from '@/components/Group';
 import Navbar from '@/components/Navbar';
 
 export default {
   name: 'GroupView',
   components:{
-      Group,
+      //Group,
       Navbar
   },
   props: {
@@ -33,26 +37,30 @@ export default {
   },
   data(){
     return{
-      groups:[
+      results:[
           {
               name:'abcefg',
-              members:3,
-              id:33222
+              count:3,
+              date: '11.10.2022',
+              key: 1
           },
           {
               name:'ijklmo',
-              members:33,
-              id:132
+              count:33,
+              date: '13.09.2020',
+              key: 2
           },
           {
               name:'pqrst',
-              members:11,
-              id:111,
+              count:11,
+              date: '11.01.2021',
+              key: 3
           },
           {
               name:'uvwxyz',
-              members:8,
-              id:12
+              count:8,
+              date: '12.12.2020',
+              key: 4
           }
       ]
     }
@@ -65,22 +73,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 
-CalcView {
-  margin-bottom:4em;
-}
 </style>

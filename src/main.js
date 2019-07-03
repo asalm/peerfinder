@@ -10,7 +10,7 @@ var url = new URL(window.location.href);
 //Router Config Stuff
 let ParentMachine = 'https://www.impact-lab.tools/';
 let usr_tkn = url.searchParams.get("token")
-let app_tkn = 'b66a5b3de8326e342b6f9e744fb732780901b4f7a37ae1f4ab9a4cae2ef48142209a47109cdf8e20ba9ba4b1c93aa4f3f649bd1ad0c0a222f4cea5cb89283eac';
+let app_tkn = '9a056d8d4072e4f865aa7a3e5ff343cfd3b4a9e6ad8b6e9f9b10e302ed15cbd9e1b330b6328dea0b8e184bf3c2bdadaaa86ed97eed0c383cc9b73bef9c98d7c6';
 var rr;
 
 Vue.config.productionTip = false;

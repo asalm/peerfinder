@@ -10,6 +10,7 @@
   "dependencies": {
     "buefy": "^0.7.6",
     "core-js": "^2.6.5",
+    "print-js": "^1.0.61",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6"
   },

@@ -2,8 +2,8 @@
 <div class="container">
     <div class="column is-12">
         <div class="columns is-multiline">
-            <div class="column is-3" v-for='peer in peers'>
-                <Peer :peerdata='peer' :cb='updateList' interactive/>
+            <div class="column is-3" v-for='peer in peers' v-bind:key='peer.id'>
+                <Peer :peerdata='peer' :cb='updateList' interactive />
             </div>
         </div>
     </div>

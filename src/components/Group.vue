@@ -31,9 +31,14 @@ export default {
   },
   methods: {
       redirect: function(){
-        window.alert("redirect");
         this.$router.push({name: 'match', params:{selectedGroup: this.gdata.name,groupId: this.gdata.id}});
     }
   }
 }
 </script>
+<style scoped>
+.box:hover{
+    box-shadow: 0px 0px 13px -4px rgba(0,0,0,0.65);
+}
+</style>
+
