@@ -59,6 +59,9 @@ export default {
   },
   methods:{
 
+  },
+  created(){
+      console.log(this.$api.usr);
   }
 }
 </script>
