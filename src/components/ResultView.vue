@@ -85,8 +85,12 @@ export default {
             });
         },
         saveMatches: function(){
-
-            window.alert("Paare wurden erfolgreich gespeichert.");
+            this.$toast.open({
+                duration: 3000,
+                message: 'Paare wurden erfolgreich gespeichert.',
+                position: 'is-bottom',
+                type: 'is-success'
+            });
         }
     }
     

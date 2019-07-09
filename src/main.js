@@ -3,7 +3,7 @@ import Buefy from 'buefy';
 import router from './router';
 import App from './App.vue';
 import 'buefy/dist/buefy.css';
-import Router_func from '../src/assets/route_func';
+//import Router_func from '../src/assets/route_func';
 
 var url = new URL(window.location.href);
 
@@ -21,17 +21,10 @@ initVue();
 
 
 async function initVue() {
-
-  //await initScript().then(async function(r) {
-
-    //rr = r;
-
     new Vue({
       router,
       render: h => h(App)
     }).$mount('#app');
-
-
   //});
 
 
@@ -57,5 +50,4 @@ function initScript(){
   });
 
 
-}
-*/
+}*/
