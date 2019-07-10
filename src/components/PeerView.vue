@@ -16,22 +16,30 @@ import Peer from '../components/Peer.vue';
 export default {
     name: 'peerview',
     props:{
-        callback: Function
+        callback: Function,
+        group: Number,
     },
     components: {
         Peer
     },
     created(){
+        this.getData();
+        /*
+        var p_peers =  await this.$api.db.users.get({"g_id":parseInt(this.$props.group)},this.$apptkn);
+
+
         this.peers.forEach(peer => {
             this.attendingList.set(peer.id,peer.name);
         });
         for(let [k,v] of this.attendingList){
             this.activeArray.push([k,v]);
         }
+        */
     },
     data(){
         return{
             peers: [
+                /*
             {
                 id: 0,
                 name : 'A',
@@ -84,7 +92,7 @@ export default {
                 id: 12,
                 name : 'M',
                 attending : true
-            }],
+            }*/],
             attendingList: new Map(),
             activeArray: []
         }
@@ -108,6 +116,27 @@ export default {
         getMapValue: function() {
             return Array.from(this.attendingList.key);
         },
+        getData: async function() {
+            var p_peers =  await this.$api.db.user.get({
+                "g_id":parseInt(this.group)},
+                this.$apptkn
+            );
+            console.log(p_peers.data);
+            for(var i = 0; i < p_peers.data.length; i++){
+                this.peers.push({
+                    "name":p_peers.data[i].username.toString(),
+                    "id":parseInt(p_peers.data[i].id),
+                    "attending":true
+                });
+            }
+
+            this.peers.forEach(peer => {
+                this.attendingList.set(peer.id,peer.name);
+            });
+            for(let [k,v] of this.attendingList){
+                this.activeArray.push([k,v]);
+            }
+        }
     }
 }
 </script>

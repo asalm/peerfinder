@@ -34,34 +34,30 @@ export default {
   data(){
     return{
       groups:[
-          {
-              name:'abcefg',
-              members:3,
-              id:33222
-          },
-          {
-              name:'ijklmo',
-              members:33,
-              id:132
-          },
-          {
-              name:'pqrst',
-              members:11,
-              id:111,
-          },
-          {
-              name:'uvwxyz',
-              members:8,
-              id:12
-          }
       ]
     }
   },
   methods:{
+      getGroup: async function(){
+          var p_group =  await this.$api.db.group.get({},this.$apptkn);
+        console.log("Returned Values Length: ",p_group.data.length);
+        for(var i = 0; i < p_group.data.length; i++){
+          this.groups.push({"Name":p_group.data[i].Name.toString(),"id":parseInt(p_group.data[i].id),"iliasID":parseInt(p_group.data[i].iliasID)});
+        }
+      },
+      getUsers: async function(grr){
+          /*
+          console.log(grr.data.length);
+          for(var i = 0; i < grr.data.length; i++){
+              var g_count = await this.$api.db.user.get({"g_id":grr.data[i].iliasID.toString()});
+              console.log("hehe",g_count);
+          }
+          console.log(grr.data[0].Name);*/
 
+      }
   },
   created(){
-      console.log(this.$api.usr);
+     this.getGroup();
   }
 }
 </script>

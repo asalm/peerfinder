@@ -9,9 +9,9 @@
   </div>
   <div class="container">
     <div class="hello">
-      <PeerView :callback='updatePeers'/>
+      <PeerView :callback='updatePeers' :group='groupId' />
     </div>
-    <CalcView :callback='updateConfig' :peerlist='selectedPeers'/>
+    <CalcView :callback='updateConfig' :peerlist='selectedPeers' :g_id='groupId'/>
   </div>
 </div>
 </template>

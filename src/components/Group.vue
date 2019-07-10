@@ -3,12 +3,12 @@
     <div v-on:click='redirect()' class="level box is-mobile">
         <div class="level-left">
             <div class="level-item">
-            <h2 class="subtitle">{{gdata.name}}</h2>
+            <h2 class="subtitle">{{gdata.Name}}</h2>
             </div>
         </div>
         <div class="level-right">
             <div class="level-item">
-                <h2 class="subtitle">{{gdata.members}}</h2>
+                <h2 class="subtitle">{{gdata.iliasID}}</h2>
             </div>
         </div>
         
@@ -20,8 +20,8 @@ export default {
   props: {
     gdata:{
         id: Number,
-        name: String,
-        members: Number,
+        Name: String,
+        iliasID: Number,
     },
   },
   data() {
@@ -29,9 +29,11 @@ export default {
 
       }
   },
+  created(){
+  },
   methods: {
       redirect: function(){
-        this.$router.push({name: 'match', params:{selectedGroup: this.gdata.name,groupId: this.gdata.id}});
+        this.$router.push({name: 'match', params:{selectedGroup: this.gdata.Name,groupId: this.gdata.iliasID}});
     }
   }
 }

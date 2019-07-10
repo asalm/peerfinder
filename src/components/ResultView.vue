@@ -45,7 +45,8 @@ import printJS from 'print-js';
 export default {
     name: 'Results',
     props:{
-        pairs: Array
+        pairs: Array,
+        groupID: Number
     },
     components:{
         Peer,
@@ -76,7 +77,7 @@ export default {
         printView: function(){
             //window.print();
             printJS({
-                printable: this.peermatch,
+                printable: JSON.stringify(this.peermatch),
                 properties: [
                     {fields: 'one', displayName: 'Partner 1'},
                     {fields: 'two', displayName: 'Partner 2'},
@@ -84,7 +85,13 @@ export default {
                 type: 'json'
             });
         },
-        saveMatches: function(){
+        saveMatches: async function(){
+
+            await this.$api.db.matchpair.insert({
+                "matches": JSON.stringify(this.peermatch),
+                "groupid": this.groupID,
+                "datum": new Date()
+            }, this.$apptkn);
             this.$toast.open({
                 duration: 3000,
                 message: 'Paare wurden erfolgreich gespeichert.',

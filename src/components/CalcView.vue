@@ -35,7 +35,8 @@ export default {
     name:'calc',
     props:{
         callback: Function,
-        peerlist: Array
+        peerlist: Array,
+        g_id: Number
     },
     data(){
         return{
@@ -71,7 +72,7 @@ export default {
                     }
                     console.log(matchlist);
                     if(matchlist.length > 0){
-                    this.$router.push({name: 'result', params:{pairs: matchlist}});
+                    this.$router.push({name: 'result', params:{pairs: matchlist,groupID: this.g_id}});
                     }else{
                         this.$toast.open({
                             duration: 3000,
